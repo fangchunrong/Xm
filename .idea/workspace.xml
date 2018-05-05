@@ -206,15 +206,6 @@
               <item name="XM" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="fcr" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="XM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XM" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="router" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -254,12 +245,12 @@
       <option name="presentableId" value="Default" />
       <updated>1525404725480</updated>
       <workItem from="1525404726563" duration="309000" />
-      <workItem from="1525485953658" duration="7110000" />
+      <workItem from="1525485953658" duration="7396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28817000" />
+    <option name="totallyTimeSpent" value="29103000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="281" y="37" width="1209" height="1053" extended-state="0" />
