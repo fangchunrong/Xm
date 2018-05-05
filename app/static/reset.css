@@ -103,7 +103,7 @@
 }
   /* 基准------------------- */
 @media only screen and (min-width: 375px) and (max-width: 414px) {
-	html { font-size: 80px; }
+	html { font-size: 23px; }
 }
 
  /* 375/320 == 80/x */
