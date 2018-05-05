@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
-
-=======
->>>>>>> develop
     <router-view/>
   </div>
 </template>
@@ -16,9 +12,5 @@ export default {
 
 <style>
 #app {
-<<<<<<< HEAD
-
-=======
->>>>>>> develop
 }
 </style>

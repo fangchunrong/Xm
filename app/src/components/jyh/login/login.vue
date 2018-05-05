@@ -3,7 +3,7 @@
     <div class="box">
       <!--上-->
       <div class="box-top">
-        <span class="left"> < </span>
+        <span class="left" @click='fh'> < </span>
         <p class="right">密码登录</p>
       </div>
       <!--中间-->
@@ -101,6 +101,11 @@
         var ptoto = document.getElementsByClassName("photo")[0]
         Vue.axios.post(this.api).then((response) => {
           this.pic = response.data.code
+        })
+      },
+      fh() {
+        this.$router.push({
+          path:'/'
         })
       }
     }
