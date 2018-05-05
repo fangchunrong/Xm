@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import face from '../components/fcr/face/face'
+import wd from '../components/fcr/face/city'
 
 Vue.use(Router)
 
@@ -8,8 +9,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'face',
+      component: face
+    },
+    {
+      path:'/city/:id',
+      name:'city',
+      component:wd
     }
   ]
 })
