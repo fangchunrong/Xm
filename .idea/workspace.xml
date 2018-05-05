@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53799e79-daa5-4e1c-9d0e-6184c2065d51" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/components/fcr/face/city.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/components/fcr/home/home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/reset.css" afterDir="false" />
-    </list>
+    <list default="true" id="53799e79-daa5-4e1c-9d0e-6184c2065d51" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -58,7 +48,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="city.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="city.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/components/fcr/face/city.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="859">
@@ -79,7 +69,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/components/fcr/home/home.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="297">
@@ -218,15 +208,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="fcr" type="462c0819:PsiDirectoryNode" />
-              <item name="face" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="XM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="XM" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="fcr" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -273,16 +254,15 @@
       <option name="presentableId" value="Default" />
       <updated>1525404725480</updated>
       <workItem from="1525404726563" duration="309000" />
-      <workItem from="1525485953658" duration="6796000" />
+      <workItem from="1525485953658" duration="7110000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28503000" />
+    <option name="totallyTimeSpent" value="28817000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="598" y="34" width="1209" height="1053" extended-state="0" />
-    <editor active="true" />
+    <frame x="281" y="37" width="1209" height="1053" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -432,13 +412,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/components/fcr/home/home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/components/fcr/face/face.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -484,6 +457,13 @@
             <element signature="e#2157#2322#0" />
             <element signature="e#2332#2518#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/components/fcr/home/home.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
