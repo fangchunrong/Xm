@@ -2,7 +2,7 @@
    <div class="fhome">
      <div class="ftop">
        <span id="fele">ele.me</span>
-       <span id="fdl">登录|注册</span>
+       <span id="fdl" @click="lg">登录|注册</span>
      </div>
      <div class="top-city">
        <div class="poscity">
@@ -76,6 +76,14 @@
 
      })
   }
+  ,
+      methods:{
+          lg(){
+              this.$router.push({
+                path:'/login'
+              })
+          }
+      }
     }
 </script>
 
