@@ -46,6 +46,7 @@
       <button class="btn" @click="bt">登录</button>
       <a href="#" class="a">重置密码？</a>
     </div>
+    <!--弹框代码-->
     <div v-if="orshow" class="small-box animated bounceIn">
       <div class="yuan">
         <span class="yuan1"></span>
@@ -88,6 +89,10 @@
       bt() {
         if (this.username == "" || this.password == "" || this.code == "") {
           this.orshow = true
+        }else {
+            this.$router.push({
+              path:'/infor'
+            })
         }
       },
       btt() {
@@ -107,7 +112,9 @@
         this.$router.push({
           path:'/'
         })
-      }
+      },
+
+
     }
 
 
