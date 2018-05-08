@@ -11,10 +11,8 @@ export default {
 </script>
 
 <style>
-<<<<<<< HEAD
-
-=======
 #app {
+
 }
->>>>>>> develop
+
 </style>

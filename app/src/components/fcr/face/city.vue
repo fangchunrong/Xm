@@ -8,15 +8,15 @@
       </div>
       <div class="city-form">
         <div id="inp">
-          <input type="search"placeholder="输入学校,商务楼,地址" v-model="serachcity">
+          <input id="ttj" type="search"placeholder="输入学校,商务楼,地址" v-model="serachcity">
           <button class="sub" @click="tj">提交</button>
           <div class="se-hes" v-if="!mes">搜索历史</div>
           <ul v-if="mes" class="getul">
             <div class="sernone" v-if="mes.length==0">很抱歉!无搜索结果</div>
             <div class="sernone" v-if="!serachcity">请填写内容</div>
-            <li class="getli" v-for="obj in mes" v-if="!mes.length==0">
+            <li class="getli" v-for="(obj,index) in mes" v-if="!mes.length==0" @click="cs(index)">
 
-            <h4 class="hh4">{{obj.name}}</h4>
+              <h4 class="hh4"><router-link :to="{name:'home',query:{city:obj.geohash,latitude:obj.latitude,longitude:obj.longitude}}" class="hh4">{{obj.name}}</router-link></h4>
               <p class="address">{{obj.address}}</p>
             </li>
           </ul>
@@ -25,7 +25,14 @@
       </div>
 
     </div>
+      <ul v-if="names" class="getul" v-show="orshow">
+        <li class="hosli getli" v-for="na in names">
 
+          <h4 class="hh4">{{na.name}}</h4>
+          <p class="address">{{na.add}}</p>
+        </li>
+        <li id="clear" @click="clear">清空所有</li>
+      </ul>
   </div>
 </template>
 
@@ -41,7 +48,12 @@
             city:'',
             serachcity:'',
             id:'',
-            mes:''
+            mes:'',
+            all:[],
+
+            names:[],
+            allnames:[],
+            orshow:false
           }
         },
       methods:{
@@ -51,8 +63,32 @@
         tj(){
           Vue.axios.get(`http://cangdu.org:8001/v1/pois?city_id=${this.id}&keyword=${this.serachcity}&type=search`).then((response)=>{
             this.mes=response.data
-            console.log(this.mes.length);
           })
+        },
+        cs(index){
+          var a = {
+            name:this.mes[index].name,
+            add:this.mes[index].address
+          };
+          for(var i = 0;i<this.all.length;i++) {
+            if (a.name == this.all[i].name) {
+              console.log("已有");
+              return 0;
+            }
+          }
+          if(localStorage.getItem("name")!=null){
+            this.all=JSON.parse(localStorage.getItem("name"))
+          }
+          this.all.push(a);
+          var b = JSON.stringify(this.all);
+          localStorage.setItem("name",b);
+
+
+        },
+        clear(){
+
+          window.localStorage.removeItem("name");
+          this.orshow = false
         }
       },
       created(){
@@ -60,18 +96,17 @@
         Vue.axios.get(`http://cangdu.org:8001/v1/cities/${id}`).then((response) => {
         this.city =response.data.name;
         this.id = response.data.id;
-        })
-
+        });
+        this.name = localStorage.getItem("name")
+        this.names=JSON.parse(this.name)
+        if(this.names!=null){
+          this.orshow=true
+        }
       }
     }
 </script>
 
 <style scoped>
-  body{
-    height: 100%;
-    width: 100%;
-    background-color: #f5f5f5;
-  }
 #head-top{
   background-color: #3190e8;
   position: fixed;
@@ -157,6 +192,9 @@
     text-align: left;
     padding-bottom: .65rem;
   }
+  .hosli{
+    margin-left: .434rem;
+  }
   .hh4{
     overflow: hidden;
     text-overflow: ellipsis;
@@ -178,5 +216,15 @@
     background-color: #fff;
     text-indent: .5rem;
      text-align: left;
+  }
+  #ttj{
+    outline: none;
+  }
+  #clear{
+    font-size: .7rem;
+    color: #666;
+    text-align: center;
+    line-height: 2rem;
+    background-color: #fff;
   }
 </style>

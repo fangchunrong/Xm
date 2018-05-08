@@ -101,6 +101,7 @@
         var ptoto = document.getElementsByClassName("photo")[0]
         Vue.axios.post(this.api).then((response) => {
           this.pic = response.data.code
+          console.log(response.data)
         })
       },
       fh() {
