@@ -239,7 +239,7 @@
     position: absolute;
     left: 13%;
     right: 50%;
-    top: 60%;
+    top: 28%;
   }
 
   .yuan {

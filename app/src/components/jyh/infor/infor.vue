@@ -30,12 +30,12 @@
             <span>我的余额</span>
           </li>
           <li class="yh">
-            <p class="yh1">
+            <p class="yh1" @click="discounts">
               <span style="font-size:1.2rem; color:#ff5f3e; font-weight: 700; ">3</span>
               个</p>
             <span>我的优惠</span>
           </li>
-          <li class="yh">
+          <li class="yh" @click="score">
             <p class="yh1">
               <span style="font-size:1.2rem; color:#6ac20b; font-weight: 700; ">0</span>
               分</p>
@@ -45,7 +45,7 @@
 
         <!--订单-->
         <ul class="list">
-          <li class="order" v-for="order in lists">
+          <li class="order" v-for="order in lists" @click="order.beat">
            <i :class="order.pic" :style="{marginLeft:order.marginLeft+'rem' ,color:order.color}"></i>
               <span style="margin-left:.5rem; font-size:.65rem ">{{order.count}}</span>
               <i class="el-icon-arrow-right" style="margin-left: 9rem; font-size: small"></i>
@@ -54,7 +54,7 @@
 
       <!--服务中心-->
         <ul class="server" style="margin-top: .5rem">
-          <li class="order" v-for="order in orders">
+          <li class="order" v-for="order in orders" @click="order.beat1">
             <i :class="order.pic" style="margin-left: .5rem; color: rgb(74, 165, 240);"></i>
             <span style="margin-left:.5rem; font-size:.65rem;">{{order.count}}</span>
             <i class="el-icon-arrow-right" style="margin-left: 9rem; font-size: small"></i>
@@ -73,24 +73,87 @@
 </template>
 
 <script>
+
     export default {
         name: "infor",
       data:function () {
         return {
           lists:[
-            {pic:"el-icon-document",count:"我的订单",marginLeft:0.5, color:"black"},
-            {pic:"el-icon-goods",count:"积分商城",marginLeft:0.5,color:"rgb(252, 123, 83)"},
-            {pic:"el-icon-star-on",count:"饿了么会员卡",marginLeft:0.5,color:"rgb(255, 198, 54)"}
+            {
+              pic:"el-icon-document",
+              count:"我的订单",
+              marginLeft:0.5,
+              color:"black",
+              beat:()=> {
+                this.$router.push({
+                  path:'/order'
+                })
+               }
+              },
+
+            {
+              pic:"el-icon-goods",
+              count:"积分商城",
+              marginLeft:0.5,
+              color:"rgb(252, 123, 83)",
+              beat:()=> {
+                this.$router.push({
+                  path:'/store'
+                })
+              }
+            },
+
+            {
+              pic:"el-icon-star-on",
+              count:"饿了么会员卡",
+              marginLeft:0.5,
+              color:"rgb(255, 198, 54)",
+              beat:()=> {
+                this.$router.push({
+                  path:'/vip'
+                })
+              }
+            }
           ],
+
           orders:[
-            {pic:"el-icon-menu",count:"服务中心"},
-            {pic:"el-icon-service",count:"下载饿了么APP"}
+            {
+              pic:"el-icon-menu",
+              count:"服务中心",
+              beat1:()=> {
+                this.$router.push({
+                  path:'/server'
+                })
+              }
+            },
+            {
+              pic:"el-icon-service",
+              count:"下载饿了么APP",
+              beat1:()=> {
+                this.$router.push({
+                  path:'/download'
+                })
+              }
+            }
           ],
+
           array:[
-            {pic:"el-icon-refresh", count:"外卖"},
-            {pic:"el-icon-search", count:"搜索"},
-            {pic:"el-icon-tickets", count:"订单"},
-            {pic:"el-icon-menu", count:"我的"}
+            {
+              pic:"el-icon-refresh",
+              count:"外卖"
+            },
+            {
+              pic:"el-icon-search",
+              count:"搜索"
+            },
+            {
+              pic:"el-icon-tickets",
+              count:"订单"
+            },
+            {
+              pic:"el-icon-menu",
+              count:"我的"
+            }
           ]
         }
       },
@@ -113,6 +176,21 @@
         money() {
             this.$router.push({
               path:'/money'
+            })
+        },
+        score() {
+            this.$router.push({
+              path:'/score'
+            })
+        },
+        discounts() {
+          this.$router.push({
+            path:'/discounts'
+          })
+        },
+        dd() {
+            this.$router.push({
+              path:'/order'
             })
         }
       }
