@@ -2,7 +2,7 @@
 <div id="app">
   <div id="head-top">
     <a data-v-070ab150="" href="#/search/geohash" class="link_search" data-v-cec0c0c0=""><svg data-v-070ab150="" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1"><circle data-v-070ab150="" cx="8" cy="8" r="7" stroke="rgb(255,255,255)" stroke-width="1" fill="none"></circle> <line data-v-070ab150="" x1="14" y1="14" x2="20" y2="20" style="stroke: rgb(255, 255, 255); stroke-width: 2;"></line></svg></a>
-    <a data-v-cec0c0c0="" href="#/profile" class="head_login">
+    <a data-v-cec0c0c0="" class="head_login">
       <svg data-v-cec0c0c0="" class="user_avatar">
         <use data-v-cec0c0c0="" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg></a>
           <span id="dz">{{cityname}}</span>
@@ -13,10 +13,10 @@
     <swiper-slide class="sw1">
 
       <ul class="ulone">
-        <li v-for="me in eight1" id="lione">
+        <li v-for="me in eight1" class="lione">
           <img :src="hf+me.image_url" alt="" class="im">
           <span class="tit">
-           <router-link :to="{path:'/all',query:{tit:me.title}}" class="tit"> {{me.title}}</router-link>
+           <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit"> {{me.title}}</router-link>
           </span>
         </li>
       </ul>
@@ -24,10 +24,10 @@
 
     <swiper-slide class="sw2">
       <ul class="ulone">
-        <li v-for="me in eight2" id="lione">
-          <router-link :to="{path:'/all',query:{tit:me.title}}" class="tit">  <img :src="hf+me.image_url" alt="" class="im">
+        <li v-for="me in eight2" class="lione">
+          <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit">  <img :src="hf+me.image_url" alt="" class="im">
           </router-link>
-          <router-link :to="{path:'/all',query:{tit:me.title}}" class="tit"> {{me.title}}</router-link>
+          <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit"> {{me.title}}</router-link>
         </li>
       </ul>
     </swiper-slide>
@@ -36,6 +36,7 @@
 
   </swiper>
   <div class="swiper-pagination"></div>
+
   <div class="titt">
     <img :src="a.pic" alt="" id="gwb">
     <span id="fj">附近商家</span>
@@ -103,6 +104,8 @@
         imghf:'https://elm.cangdu.org/img/',
         eight1:[],
         eight2:[],
+        jd:this.$route.query.latitude,
+        wd:this.$route.query.longitude,
         a:{
           pic:pic
         },
@@ -113,6 +116,7 @@
     created(){
       Vue.axios.get("http://cangdu.org:8001/v2/index_entry").then((response)=>{
         this.mes=response.data;
+        console.log(this.mes);
         this.eight1 = this.mes.slice(0,8);
         this.eight2 = this.mes.slice(8,16);
       });
@@ -128,10 +132,7 @@
         })
       },100);
       Vue.axios.get(`http://cangdu.org:8001/shopping/restaurants?latitude=${this.$route.query.latitude}&longitude=${this.$route.query.longitude}`).then((response)=>{
-
-         this.all= response.data;
-        console.log(this.all);
-
+        this.all= response.data;
       })
     },
 
@@ -200,7 +201,7 @@
     display: inline-block;
 
   }
-  #lione{
+  .lione{
     width: 25%;
     display: inline-block;
     text-align: center;

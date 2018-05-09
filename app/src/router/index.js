@@ -1,14 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import login from '../components/jyh/login/login'
-<<<<<<< HEAD
-=======
 import infor from '../components/jyh/infor/infor'
 import user from '../components/jyh/user/user'
 import money from '../components/jyh/money/money'
 import money1 from '../components/jyh/money1/money1'
-
->>>>>>> 2e5fae145aed75aa539266d98b33ba0afe64bd0b
 import face from '../components/fcr/face/face'
 import wd from '../components/fcr/face/city'
 import home from '../components/fcr/home/home'
@@ -35,16 +31,17 @@ export default new Router({
       component:login
     },
     {
-<<<<<<< HEAD
+
       path:'/home',
       name:'home',
       component:home
     },
     {
-      path:'/all',
-      name:'all',
-      component:all
-=======
+      path: '/all',
+      name: 'all',
+      component: all
+    },
+    {
       path:'/infor',
       name:'infor',
       component:infor
@@ -63,7 +60,6 @@ export default new Router({
       path:'/money1',
       name:'money1',
       component:money1
->>>>>>> 2e5fae145aed75aa539266d98b33ba0afe64bd0b
     }
 
   ]
