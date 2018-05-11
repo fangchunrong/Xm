@@ -55,12 +55,11 @@
         </div>
 
       <!--兑换会员-->
-      <!--上-->
-      <div class="vip_box_header" style="margin-top: .5rem" v-for="vip_box_header in vips">
-        <!--上左-->
+      <div class="vip_box_header" style="margin-top: .5rem" v-for="vip_box_header in vips" @click="vip_box_header.beat">
+        <!--左-->
         <span style="font-size: .7rem;
     color: #333; margin-left: .8rem;">{{vip_box_header.count}}</span>
-        <!--上右-->
+        <!--右-->
         <div class="header_r">
             <span style="font-size: .6rem;
     color: #999;margin-right: .2rem;">{{vip_box_header.count1}}</span>
@@ -95,14 +94,25 @@
               p1:"蜂鸟专送专享"
             }
           ],
+          //兑换会员
           vips:[
             {
               count:"兑换会员",
-              count1:"使用卡号密码"
+              count1:"使用卡号密码",
+              beat:()=> {
+                this.$router.push({
+                  path:'/vipcard'
+                })
+              }
             },
             {
               count:"购买记录",
-              count1:"开发票"
+              count1:"开发票",
+              beat:()=> {
+                this.$router.push({
+                  path:'/record'
+                })
+              }
             }
           ]
 
@@ -124,55 +134,12 @@
             this.$router.push({
               path:'/pay'
             })
-        }
+        },
       }
     }
 </script>
 
 <style scoped>
-  #box {
-    width: 375px;
-    height: 667px;
-    background-color: #f5f5f5;
-  }
-
-  .box {
-    width: 100%;
-  }
-  /*上*/
-  .box-top {
-    width: 375px;
-    height: 1.95rem;
-    background-color: #3190e8;
-    border-bottom: 1px solid #fff ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  /*上*/
-  .box-top {
-    width: 375px;
-    height: 1.95rem;
-    background-color: #3190e8;
-    border-bottom: 1px solid #fff ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .left {
-    display: inline-block;
-    font-size: 1.2rem;
-    line-height: 2.2rem;
-    color: white;
-    position: absolute;
-    left: 10px;
-  }
-
-  .right {
-    font-size: 0.8rem;
-    color: #fff;
-    font-weight: 700;
-  }
 
   /*P标签*/
   .buy {
@@ -217,7 +184,7 @@
     color: #333;
     font-weight: 400;
   }
-  p {
+ .vip_box_middle p {
     margin-top: .2rem;
     font-size: .5rem;
     color: #999;

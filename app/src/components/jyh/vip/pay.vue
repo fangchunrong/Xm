@@ -23,17 +23,17 @@
             <span style="font-size: .7rem;color: #666;">支付宝</span>
           </div>
           <div class="list_top_r">
-            <img src="@/assets/img/10.png" class="pic2">
+              <i class="el-icon-success" @click="y1" id="lv"></i>
           </div>
         </div>
 
         <div class="list_top">
           <div class="list_top_l">
             <img src="@/assets/img/9.png" class="pic1">
-            <span style="font-size: .7rem;color: #666;">支付宝</span>
+            <span style="font-size: .7rem;color: #666;">微信</span>
           </div>
           <div class="list_top_r">
-            <img src="@/assets/img/10.png" class="pic2">
+              <i class="el-icon-success" @click="y2" id="lv1"></i>
           </div>
         </div>
       </div>
@@ -93,7 +93,17 @@
         },
         ddd(){
             this.orshow1 = false
-        }
+        },
+          y1($e) {
+             $e.target.style.color = "green"
+              var lv1 = document.getElementById("lv1");
+              lv1.style.color = "black"
+          },
+          y2($e) {
+              $e.target.style.color = "green";
+                  var lv = document.getElementById("lv");
+                  lv.style.color = "black"
+          }
       },
       created(){
         var timer1 = setInterval(()=> {
@@ -127,49 +137,6 @@
 </script>
 
 <style scoped>
-  #box {
-    width: 375px;
-    height: 667px;
-    background-color: #f5f5f5;
-  }
-
-  .box {
-    width: 100%;
-  }
-  /*上*/
-  .box-top {
-    width: 375px;
-    height: 1.95rem;
-    background-color: #3190e8;
-    border-bottom: 1px solid #fff ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  /*上*/
-  .box-top {
-    width: 375px;
-    height: 1.95rem;
-    background-color: #3190e8;
-    border-bottom: 1px solid #fff ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .left {
-    display: inline-block;
-    font-size: 1.2rem;
-    line-height: 2.2rem;
-    color: white;
-    position: absolute;
-    left: 10px;
-  }
-
-  .right {
-    font-size: 0.8rem;
-    color: #fff;
-    font-weight: 700;
-  }
 
   /*时间*/
   .time {
@@ -217,10 +184,7 @@
     margin-right: .2rem;
   }
 
-  .pic2 {
-    width: 1.2rem;
-    height: 1.2rem;
-  }
+
 
   /*支付*/
   .button {
@@ -308,4 +272,9 @@
     font-size: 1.5rem;
     margin: 1rem 0;
   }
+
+    /*对号变色*/
+    .green {
+        color: green;
+    }
 </style>

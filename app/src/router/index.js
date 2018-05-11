@@ -10,6 +10,9 @@ import score from '../components/jyh/score/score'
 import score1 from '../components/jyh/score1/score1'
 import discounts from '../components/jyh/discounts/discounts'
 import prize from '../components/jyh/discounts/prize'
+import red from '../components/jyh/discounts/red'
+import explain1 from '../components/jyh/discounts/explain1'
+import coupon from '../components/jyh/discounts/coupon'
 import order from '../components/jyh/order/order'
 import store from '../components/jyh/store/store'
 import vip from '../components/jyh/vip/vip'
@@ -17,6 +20,10 @@ import explain from '../components/jyh/vip/explain'
 import server from '../components/jyh/infor/server'
 import download from '../components/jyh/infor/download'
 import pay from '../components/jyh/vip/pay'
+import vipcard from '../components/jyh/vip/vipcard'
+import record from '../components/jyh/vip/record'
+import detail from '../components/jyh/infor/detail'
+import search from '../components/jyh/search/search'
 
 import face from '../components/fcr/face/face'
 import wd from '../components/fcr/face/city'
@@ -128,9 +135,48 @@ export default new Router({
       path:'/prize',
       name:'prize',
       component:prize
+<<<<<<< HEAD
 
     }
 
+=======
+    },
+    {
+      path:'/red',
+      name:'red',
+      component:red
+    },
+    {
+      path:'/explain1',
+      name:'explain1',
+      component:explain1
+    },
+    {
+      path:'/coupon',
+      name:'coupon',
+      component:coupon
+    },
+    {
+      path:'/vipcard',
+      name:'vipcard',
+      component:vipcard
+    },
+    {
+      path:'/record',
+      name:'record',
+      component:record
+    },
+    {
+      path:'/server/:id',
+      name:"detail",
+      component:detail
+    },
+      {
+          path:'/search',
+          name:"search",
+          component:search
+      }
+>>>>>>> 42bda20c6fb91f98277d5f9bf5926773a8d9ca15
 
   ]
 })

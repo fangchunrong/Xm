@@ -52,47 +52,7 @@
 </script>
 
 <style scoped>
-  #box {
-    width: 375px;
-    height: 667px;
-  }
 
-  .box {
-    width: 100%;
-  }
-  /*上*/
-  .box-top {
-    width: 375px;
-    height: 1.95rem;
-    background-color: #3190e8;
-    border-bottom: 1px solid #fff ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  /*上*/
-  .box-top {
-    width: 375px;
-    height: 1.95rem;
-    background-color: #3190e8;
-    border-bottom: 1px solid #fff ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .left {
-    margin-top: -.2rem;
-    font-size: 1.2rem;
-    color: white;
-    position: absolute;
-    left: 10px;
-  }
-
-  .right {
-    font-size: 0.8rem;
-    color: #fff;
-    font-weight: 700;
-  }
   /*下*/
   .down img {
     width:7.8rem ;
