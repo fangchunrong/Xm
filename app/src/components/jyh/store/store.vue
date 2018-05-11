@@ -15,11 +15,6 @@
 </script>
 
 <style scoped>
-  #box {
-    width: 375px;
-    height: 667px;
-    background-color: #f0f0f0;
-  }
 
   .box {
     text-align: center;

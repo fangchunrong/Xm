@@ -3,7 +3,7 @@
     <div class="box">
       <!--导航-->
         <div class="box-top">
-          <span class="left"> < </span>
+          <span class="left" @click="home"> < </span>
           <p class="right">我的</p>
         </div>
       <!--登录-->
@@ -64,8 +64,10 @@
       <!--脚部-->
       <div class="footer">
         <div class="footer1"  v-for="footer1 in array"  @click="blue" style="text-align: center">
-          <li :class="footer1.pic"></li>
-          <p style="font-size: .5rem">{{footer1.count}}</p>
+            <router-link :to="{name:footer1.name}" class="black" style="color: #000">
+                <li :class="footer1.pic"></li>
+                <p style="font-size: .5rem">{{footer1.count}}</p>
+            </router-link>
         </div>
       </div>
     </div>
@@ -140,19 +142,23 @@
           array:[
             {
               pic:"el-icon-refresh",
-              count:"外卖"
+              count:"外卖",
+                name:"home"
             },
             {
               pic:"el-icon-search",
-              count:"搜索"
+              count:"搜索",
+                name:"search"
             },
             {
               pic:"el-icon-tickets",
-              count:"订单"
+              count:"订单",
+                name:"#"
             },
             {
               pic:"el-icon-menu",
-              count:"我的"
+              count:"我的",
+                name:"infor"
             }
           ]
         }
@@ -192,48 +198,17 @@
             this.$router.push({
               path:'/order'
             })
+        },
+        home() {
+            this.$router.push({
+              path:'/home'
+            })
         }
       }
     }
 </script>
 
 <style scoped>
-  #box {
-    width: 375px;
-    height: 667px;
-    background-color: #f5f5f5;
-  }
-
-  .box {
-    width: 100%;
-  }
-
-  /*上*/
-  .box-top {
-    width: 375px;
-    height: 1.95rem;
-    background-color: #3190e8;
-    border-bottom: 1px solid #fff ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .left {
-    display: inline-block;
-    font-size: 1.2rem;
-    line-height: 2.2rem;
-    color: white;
-    position: absolute;
-    left: 10px;
-  }
-
-  .right {
-    font-size: 0.8rem;
-    color: #fff;
-    font-weight: 700;
-  }
-
   /*登录*/
   .login {
     width:375px;

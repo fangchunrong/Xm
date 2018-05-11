@@ -6,12 +6,13 @@ import infor from '../components/jyh/infor/infor'
 import user from '../components/jyh/user/user'
 import money from '../components/jyh/money/money'
 import money1 from '../components/jyh/money1/money1'
-<<<<<<< HEAD
-=======
 import score from '../components/jyh/score/score'
 import score1 from '../components/jyh/score1/score1'
 import discounts from '../components/jyh/discounts/discounts'
 import prize from '../components/jyh/discounts/prize'
+import red from '../components/jyh/discounts/red'
+import explain1 from '../components/jyh/discounts/explain1'
+import coupon from '../components/jyh/discounts/coupon'
 import order from '../components/jyh/order/order'
 import store from '../components/jyh/store/store'
 import vip from '../components/jyh/vip/vip'
@@ -19,8 +20,11 @@ import explain from '../components/jyh/vip/explain'
 import server from '../components/jyh/infor/server'
 import download from '../components/jyh/infor/download'
 import pay from '../components/jyh/vip/pay'
+import vipcard from '../components/jyh/vip/vipcard'
+import record from '../components/jyh/vip/record'
+import detail from '../components/jyh/infor/detail'
+import search from '../components/jyh/search/search'
 
->>>>>>> f4a842ca35f358ae1454509f4051fc88a35197f9
 import face from '../components/fcr/face/face'
 import wd from '../components/fcr/face/city'
 import home from '../components/fcr/home/home'
@@ -76,8 +80,6 @@ export default new Router({
       path:'/money1',
       name:'money1',
       component:money1
-<<<<<<< HEAD
-=======
     },
     {
       path:'/score',
@@ -133,9 +135,42 @@ export default new Router({
       path:'/prize',
       name:'prize',
       component:prize
->>>>>>> f4a842ca35f358ae1454509f4051fc88a35197f9
-    }
-
+    },
+    {
+      path:'/red',
+      name:'red',
+      component:red
+    },
+    {
+      path:'/explain1',
+      name:'explain1',
+      component:explain1
+    },
+    {
+      path:'/coupon',
+      name:'coupon',
+      component:coupon
+    },
+    {
+      path:'/vipcard',
+      name:'vipcard',
+      component:vipcard
+    },
+    {
+      path:'/record',
+      name:'record',
+      component:record
+    },
+    {
+      path:'/server/:id',
+      name:"detail",
+      component:detail
+    },
+      {
+          path:'/search',
+          name:"search",
+          component:search
+      }
 
   ]
 })
