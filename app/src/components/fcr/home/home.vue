@@ -11,23 +11,23 @@
   <swiper ref="mySwiper" class="lb">
     <!-- slides -->
     <swiper-slide class="sw1">
+      <ul class="ulone">
+        <li v-for="me in eight2" class="lione">
+          <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit">  <img :src="hf+me.image_url" alt="" class="im">
+          </router-link>
+          <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit"> {{me.title}}</router-link>
+        </li>
+      </ul>
 
+    </swiper-slide>
+
+    <swiper-slide class="sw2">
       <ul class="ulone">
         <li v-for="me in eight1" class="lione">
           <img :src="hf+me.image_url" alt="" class="im">
           <span class="tit">
            <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit"> {{me.title}}</router-link>
           </span>
-        </li>
-      </ul>
-    </swiper-slide>
-
-    <swiper-slide class="sw2">
-      <ul class="ulone">
-        <li v-for="me in eight2" class="lione">
-          <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit">  <img :src="hf+me.image_url" alt="" class="im">
-          </router-link>
-          <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit"> {{me.title}}</router-link>
         </li>
       </ul>
     </swiper-slide>
@@ -40,6 +40,7 @@
   <div class="titt">
     <img :src="a.pic" alt="" id="gwb">
     <span id="fj">附近商家</span>
+
     <div>
       <ul>
         <li v-for="al in all" class="sjli">
@@ -337,8 +338,12 @@
     color: #666;
     margin-left: -1rem;
   }
+
   .distance_time{
     transform: scale(.7);
+    position: absolute;
+    right: -1.30rem;
+    top: 2.13rem;
   }
   .dis{
     color: #999;
@@ -348,10 +353,5 @@
   }
   h5{
   text-align: left;
-  }
-  .distance_time{
-    position: absolute;
-    right: -1.30rem;
-    top: 2.13rem;
   }
 </style>

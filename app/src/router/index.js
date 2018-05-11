@@ -6,8 +6,6 @@ import infor from '../components/jyh/infor/infor'
 import user from '../components/jyh/user/user'
 import money from '../components/jyh/money/money'
 import money1 from '../components/jyh/money1/money1'
-<<<<<<< HEAD
-=======
 import score from '../components/jyh/score/score'
 import score1 from '../components/jyh/score1/score1'
 import discounts from '../components/jyh/discounts/discounts'
@@ -20,7 +18,6 @@ import server from '../components/jyh/infor/server'
 import download from '../components/jyh/infor/download'
 import pay from '../components/jyh/vip/pay'
 
->>>>>>> f4a842ca35f358ae1454509f4051fc88a35197f9
 import face from '../components/fcr/face/face'
 import wd from '../components/fcr/face/city'
 import home from '../components/fcr/home/home'
@@ -76,8 +73,6 @@ export default new Router({
       path:'/money1',
       name:'money1',
       component:money1
-<<<<<<< HEAD
-=======
     },
     {
       path:'/score',
@@ -133,7 +128,7 @@ export default new Router({
       path:'/prize',
       name:'prize',
       component:prize
->>>>>>> f4a842ca35f358ae1454509f4051fc88a35197f9
+
     }
 
 
