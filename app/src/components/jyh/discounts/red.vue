@@ -10,10 +10,11 @@
       <!--中-->
       <div class="red">
         <input type="text" placeholder="请输入兑换码" class="input1">
+
         <div class="red1">
           <input type="text" placeholder="验证码" class="input2">
           <div class="red2">
-                <img :src="pic" alt="" ref="photo">
+              <img :src="pic" alt="" ref="photo">
             <div class="change">
               <p style="font-size: .55rem;color: #666;">看不清</p>
               <p style="font-size: .55rem;color: #3b95e9;margin-top: .2rem;" @click="bh">换一张</p>
@@ -31,6 +32,7 @@
 
 <script>
   import Vue from 'vue'
+
     export default {
         name: "red",
         data:function(){
@@ -53,7 +55,7 @@
             })
           },
           bh() {
-            var ptoto = document.getElementsByClassName("photo")[0]
+            var photo = document.getElementsByClassName("photo")[0]
             Vue.axios.post(this.api).then((response) => {
               this.pic = response.data.code
               // console.log(response.data)
@@ -75,6 +77,7 @@
     padding: .6rem .4rem;
     border-radius: .15rem;
   }
+
   .input2 {
     font-size: .7rem;
     color: #666;
