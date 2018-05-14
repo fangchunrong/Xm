@@ -8,23 +8,26 @@
         </div>
         <!--中间-->
         <div class="box-middle">
-          <div class="middle1" v-for="middle1 in array">
+          <div class="middle1" v-for="middle1 in array" @click="middle1.beat">
             <span class="tx">{{middle1.count}}</span>
             <img :src="middle1.pic" alt="">
             <i :class="middle1.text" style="margin-right: .5rem; opacity: 0.5"></i>
           </div>
         </div>
 
-        <!--绑定手机-->
+        <!--账号绑定-->
         <div class="phone">
             <p class="phone1">账号绑定</p>
-            <div class="phone2">
+            <!--手机-->
+            <div class="phone2" @click="dianji">
               <img src="@/assets/img/2.png" style="width: .8rem; height: 1rem">
               <p style="font-size: .6rem; margin-left:-.4rem" >手机</p>
               <i class="el-icon-arrow-right"  style="margin-right: .5rem; opacity: 0.5"></i>
           </div>
+
           <p class="phone1">安全设置</p>
-          <div class="phone2">
+            <!--登录密码-->
+          <div class="phone2" @click="password">
             <p style="font-size: .6rem; margin-left: .5rem">登录密码</p>
             <span style="margin-right:-10.5rem ; opacity: 0.5">修改</span>
             <i class="el-icon-arrow-right"  style="margin-right: .5rem; opacity: 0.5"></i>
@@ -48,6 +51,16 @@
             </div>
           </div>
         </div>
+
+          <!--手机弹框代码-->
+          <div v-if="orshow1" class="small-box animated bounceIn">
+              <div class="yuan">
+                  <span class="yuan1"></span>
+                  <span class="yuan2"></span>
+              </div>
+              <p class="import">请在手机APP设置</p>
+              <div class="bttn3" @click="bbb">确认</div>
+          </div>
       </div>
     </div>
 </template>
@@ -59,11 +72,34 @@
         data:function () {
           return {
             array:[
-              {count:"头像",text:"el-icon-arrow-right",pic:pic},
-              {count:"用户名",text:"el-icon-arrow-right",pic:""},
-              {count:"收货地址",text:"el-icon-arrow-right",pic:""}
+              {
+                  count:"头像",
+                  text:"el-icon-arrow-right",
+                  pic:pic
+              },
+              {
+                  count:"用户名",
+                  text:"el-icon-arrow-right",
+                  pic:"",
+                  beat:()=>{
+                      this.$router.push({
+                          path:"/name"
+                      })
+                  }
+              },
+              {
+                  count:"收货地址",
+                  text:"el-icon-arrow-right",
+                  pic:"",
+                  beat:()=> {
+                      this.$router.push({
+                          path:"/add"
+                      })
+                  }
+              }
             ],
-            orshow: false
+            orshow: false,
+              orshow1:false
           }
         },
       methods: {
@@ -82,7 +118,18 @@
         },
         wait() {
             this.orshow = false
-        }
+        },
+          password() {
+              this.$router.push({
+                  path:'/password'
+              })
+          },
+          dianji(){
+              this.orshow1 = true
+          },
+          bbb() {
+              this.orshow1 = false
+          }
       }
     }
 </script>
@@ -162,7 +209,7 @@
     background: rgba(0, 0, 0 ,0.2);
   }
 
-  /*弹出框*/
+  /*退出登录弹出框*/
   .small-box {
     width: 94%;
     background: #fff;
@@ -232,8 +279,73 @@
     font-weight: 500;
     margin: 25px 0;
   }
-  /*去除默认边框*/
-  button:focus {
-    outline: none;
+
+  /*手机弹出框代码*/
+  .small-box {
+      width: 12.218rem;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+      left: 13%;
+      right: 50%;
+      top: 28%;
+      border-radius: 3%;
   }
+
+  .yuan {
+      width: 3rem;
+      height: 3rem;
+      border: .15rem solid #f8cb86;
+      border-radius: 50%;
+      position: relative;
+      margin-top: 1rem;
+  }
+
+  .yuan1 {
+      display: block;
+      width: .12rem;
+      height: 1.5rem;
+      background-color: #f8cb86;
+      position: absolute;
+      left: 50%;
+      top: 20%;
+  }
+
+  .yuan2 {
+      display: block;
+      width: .2rem;
+      height: .2rem;
+      position: absolute;
+      left: 50%;
+      top: 80%;
+      background-color: #f8cb86;
+  }
+
+  .bttn3 {
+      width: 100%;
+      height: 2rem;
+      font-size: .8rem;
+      color: #fff;
+      text-align: center;
+      background-color: #4cd964;
+      margin-top: .8rem;
+      border: 1px;
+      font-weight: 700;
+      border-bottom-left-radius: .25rem;
+      border-bottom-right-radius: .25rem;
+      line-height: 1.74rem;
+  }
+
+  .import {
+      font-size: .7rem;
+      color: #333;
+      line-height: .9rem;
+      text-align: center;
+      margin-top: .8rem;
+      padding: 0 .4rem;
+  }
+
 </style>

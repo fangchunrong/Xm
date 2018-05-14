@@ -24,6 +24,11 @@ import vipcard from '../components/jyh/vip/vipcard'
 import record from '../components/jyh/vip/record'
 import detail from '../components/jyh/infor/detail'
 import search from '../components/jyh/search/search'
+import password from '../components/jyh/user/password'
+import add from '../components/jyh/user/add'
+import add1 from '../components/jyh/user/add1'
+import name from '../components/jyh/user/name'
+import appraise from '../components/jyh/appraise/appraise'
 
 import face from '../components/fcr/face/face'
 import wd from '../components/fcr/face/city'
@@ -135,11 +140,6 @@ export default new Router({
       path:'/prize',
       name:'prize',
       component:prize
-<<<<<<< HEAD
-
-    }
-
-=======
     },
     {
       path:'/red',
@@ -175,8 +175,31 @@ export default new Router({
           path:'/search',
           name:"search",
           component:search
+      },
+      {
+          path:'/password',
+          name:"password",
+          component:password
+      },
+      {
+          path:'/add',
+          name:"add",
+          component:add
+      },
+      {
+          path:'/add1',
+          name:"add1",
+          component:add1
+      },
+      {
+          path:'/name',
+          name:"name",
+          component:name
+      },
+      {
+          path:'/appraise',
+          name:"appraise",
+          component:appraise
       }
->>>>>>> 42bda20c6fb91f98277d5f9bf5926773a8d9ca15
-
   ]
 })
