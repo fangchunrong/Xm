@@ -10,27 +10,27 @@
   </div>
   <swiper ref="mySwiper" class="lb">
     <!-- slides -->
+      <swiper-slide class="sw2">
+          <ul class="ulone">
+              <li v-for="me in eight2" class="lione">
+                  <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit">  <img :src="hf+me.image_url" alt="" class="im">
+                  </router-link>
+                  <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit"> {{me.title}}</router-link>
+              </li>
+          </ul>
+      </swiper-slide>
     <swiper-slide class="sw1">
-      <ul class="ulone">
-        <li v-for="me in eight2" class="lione">
-          <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit">  <img :src="hf+me.image_url" alt="" class="im">
-          </router-link>
-          <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit"> {{me.title}}</router-link>
-        </li>
-      </ul>
-
-    </swiper-slide>
-
-    <swiper-slide class="sw2">
-      <ul class="ulone">
-        <li v-for="me in eight1" class="lione">
-          <img :src="hf+me.image_url" alt="" class="im">
-          <span class="tit">
+        <ul class="ulone">
+            <li v-for="me in eight1" class="lione">
+                <img :src="hf+me.image_url" alt="" class="im">
+                <span class="tit">
            <router-link :to="{path:'/all',query:{tit:me.title,jd:jd,wd:wd}}" class="tit"> {{me.title}}</router-link>
           </span>
-        </li>
-      </ul>
+            </li>
+        </ul>
+
     </swiper-slide>
+
 
 
 
@@ -43,7 +43,7 @@
 
     <div>
       <ul>
-        <li v-for="al in all" class="sjli">
+        <li v-for="al in all" class="sjli" @click="car(imghf+al.image_path)">
           <img :src="imghf+al.image_path" alt="" class="sj">
           <div class="shopright">
           <header data-v-2df9c5b6="" class="shop_detail_header"><h4 data-v-2df9c5b6="" class="shop_title ellipsis premium"><span class="pp">品牌</span>效果演示</h4>
@@ -81,7 +81,15 @@
       </ul>
     </div>
   </div>
-
+        <!--底部导航条-->
+    <div class="footer">
+        <div class="footer1"  v-for="footer1 in array"  @click="blue" style="text-align: center">
+            <router-link :to="{name:footer1.name}" class="black" style="color: #000">
+                <li :class="footer1.pic"></li>
+                <p style="font-size: .5rem">{{footer1.count}}</p>
+            </router-link>
+        </div>
+    </div>
 </div>
 
 </template>
@@ -98,6 +106,7 @@
     },
     name: "home",
     data() {
+
       return {
         mes:'',
         allpic:[],
@@ -107,6 +116,28 @@
         eight2:[],
         jd:this.$route.query.latitude,
         wd:this.$route.query.longitude,
+          array:[
+              {
+                  pic:"el-icon-refresh",
+                  count:"外卖",
+                  name:"home"
+              },
+              {
+                  pic:"el-icon-search",
+                  count:"搜索",
+                  name:"search"
+              },
+              {
+                  pic:"el-icon-tickets",
+                  count:"订单",
+                  name:"#"
+              },
+              {
+                  pic:"el-icon-menu",
+                  count:"我的",
+                  name:"infor"
+              }
+          ],
         a:{
           pic:pic
         },
@@ -131,22 +162,48 @@
               el: '.swiper-pagination',
             },
         })
-      },100);
+      },500);
       Vue.axios.get(`http://cangdu.org:8001/shopping/restaurants?latitude=${this.$route.query.latitude}&longitude=${this.$route.query.longitude}`).then((response)=>{
-        this.all= response.data;
+        this.all = response.data;
       })
     },
 
     methods:{
+        car(hf){
+
+            console.log("6")
+            this.$router.push({name:'car',query:{href:hf}});
+        },
+        blue(ev){
+            //currentTarget:绑定事件的标签
+            var el = ev.currentTarget
+            for(let a=0;a<el.parentNode.childNodes.length;a++)
+            {
+                el.parentNode.childNodes[a].firstChild.style.color = "black"
+            }
+            el.firstChild.style.color = "#3190e8"
+            // console.log(ev.target)
+        },
     },
   }
 </script>
 <style>
   .swiper-pagination-bullet{
-    margin-left: 10px;
+    margin-left: 0.434rem;
   }
 </style>
 <style scoped>
+    .footer {
+        width: 100%;
+        height: 1.95rem;
+        background-color: #fff;
+        display: flex;
+        justify-content:space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        box-shadow: 0 -0.02667rem 0.05333rem rgba(0,0,0,.1);
+    }
   #app{
     width: 100%;
     height: 100%;
@@ -178,7 +235,7 @@
   }
   .el-icon-location-outline{
     color: white;
-    width: 20px;
+    width:0.869rem;
     position: absolute;
     right: .55rem;
     top: 30%;
@@ -218,7 +275,7 @@
   }
   .sw2{
     width: 100%;
-    height: 100px;
+    height: 4.347rem;
   }
   .tit{
     display: block;

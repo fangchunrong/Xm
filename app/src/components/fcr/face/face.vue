@@ -156,7 +156,7 @@
     margin-bottom: 0.43rem;
     padding: 0 .45rem;
     border-top: 1px solid #e4e4e4;
-    border-bottom: 2px solid #e4e4e4;
+    border-bottom:0.0869rem solid #e4e4e4;
     font: .75rem/1.8rem Microsoft YaHei;
   }
   #this-city{
@@ -226,7 +226,7 @@
 
   }
   .all-city{
-    margin-top: 10px;
+    margin-top: 0.434rem;
   }
   .city{
     color: #666;

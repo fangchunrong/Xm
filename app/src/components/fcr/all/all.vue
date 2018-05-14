@@ -1,7 +1,7 @@
 <template>
     <div id="app">
       <div class="headtop">
-        <span class="jt"><</span>
+        <span class="jt" @click="fh"><</span>
         <span class="tit">{{this.$route.query.tit}}</span>
       </div>
       <div class="sort">
@@ -119,7 +119,7 @@
 
       <div class="liebiao">
         <ul>
-          <li v-for="al in alll" class="sjli">
+          <li v-for="al in alll" class="sjli" @click="car">
             <img :src="imghf+al.image_path" alt="" class="sj">
             <div class="shopright">
               <header data-v-2df9c5b6="" class="shop_detail_header"><h4 data-v-2df9c5b6="" class="shop_title ellipsis premium"><span class="pp">品牌</span>效果演示</h4>
@@ -213,6 +213,10 @@
         }
       },
       methods: {
+          car(){
+
+               this.$router.push({name:'car'})
+          },
         dh($event,index){
           var ll =document.getElementById("only")
           if($event.target == ll){
@@ -346,7 +350,10 @@
            console.log(lii[5].getAttribute("class"))
            console.log(e.target.childNodes);
 
-        }
+        },
+          fh(){
+            this.$router.push({name:"home"});
+          }
       },
       created() {
         Vue.axios.get(`http://cangdu.org:8001/shopping/v2/restaurant/category`).then((response) => {
@@ -502,7 +509,7 @@
     align-items: center;
     color: #666;
     background: white;
-    font-size: 10px;
+    font-size: 0.3rem;
   }
   .px{
     position: fixed;
@@ -519,7 +526,7 @@
   /*end*/
   .bo{
     width: 100%;
-    height: 812px;
+    height:35.30rem;
     margin-top: 16.0rem;
     background: #b2b2b2;
     opacity: 0.5;
@@ -608,8 +615,11 @@
   }
   .left{
     width: 50%;
-    height: 100%;
+    height: 31%;
     background: #f1f1f1;
+   margin-top: 0;
+      position: absolute;
+      left: 0;
   }
   .right{
     background: white;
@@ -633,7 +643,7 @@
     color: #cfcfcf;
   }
   .oneli{
-    padding-left: 10px;
+    padding-left: 0.3rem;
   }
   .twoli{
     border-bottom: 1px solid whitesmoke;

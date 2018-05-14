@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
 import login from '../components/jyh/login/login'
 import infor from '../components/jyh/infor/infor'
 import user from '../components/jyh/user/user'
@@ -29,6 +28,7 @@ import face from '../components/fcr/face/face'
 import wd from '../components/fcr/face/city'
 import home from '../components/fcr/home/home'
 import all from '../components/fcr/all/all'
+import car from "../components/fcr/car/car"
 Vue.use(Router)
 
 export default new Router({
@@ -134,12 +134,7 @@ export default new Router({
     {
       path:'/prize',
       name:'prize',
-      component:prize
-<<<<<<< HEAD
-
-    }
-
-=======
+      component:prize,
     },
     {
       path:'/red',
@@ -175,8 +170,13 @@ export default new Router({
           path:'/search',
           name:"search",
           component:search
+      },
+      {
+          path:"/car",
+          name:"car",
+          component:car
       }
->>>>>>> 42bda20c6fb91f98277d5f9bf5926773a8d9ca15
+
 
   ]
 })
