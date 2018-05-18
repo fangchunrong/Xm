@@ -28,8 +28,11 @@ import add from '../components/jyh/user/add'
 import add1 from '../components/jyh/user/add1'
 import name from '../components/jyh/user/name'
 import appraise from '../components/jyh/appraise/appraise'
+<<<<<<< HEAD
 import carr from '../components/jyh/carr/carr'
 
+=======
+>>>>>>> feature/fcr
 import face from '../components/fcr/face/face'
 import wd from '../components/fcr/face/city'
 import home from '../components/fcr/home/home'
@@ -140,7 +143,11 @@ export default new Router({
     {
       path:'/prize',
       name:'prize',
+<<<<<<< HEAD
       component:prize
+=======
+      component:prize,
+>>>>>>> feature/fcr
     },
     {
       path:'/red',
@@ -182,7 +189,12 @@ export default new Router({
           name:"car",
           component:car
       },
+<<<<<<< HEAD
       { path:'/password',
+=======
+      {
+          path:'/password',
+>>>>>>> feature/fcr
           name:"password",
           component:password
       },
@@ -206,10 +218,15 @@ export default new Router({
           name:"appraise",
           component:appraise
       },
+<<<<<<< HEAD
       {
           path:'/carr',
           name:'carr',
           component:carr
       }
   ]
+=======
+]
+
+>>>>>>> feature/fcr
 })
