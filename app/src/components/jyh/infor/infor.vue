@@ -46,18 +46,22 @@
         <!--订单-->
         <ul class="list">
           <li class="order" v-for="order in lists" @click="order.beat">
-           <i :class="order.pic" :style="{marginLeft:order.marginLeft+'rem' ,color:order.color}"></i>
-              <span style="margin-left:.5rem; font-size:.65rem ">{{order.count}}</span>
-              <i class="el-icon-arrow-right" style="margin-left: 9rem; font-size: small"></i>
+              <div class="ppp">
+                  <i :class="order.pic" :style="{ color:order.color}"></i>
+                  <span style="margin-left:.2rem; font-size:.65rem ">{{order.count}}</span>
+              </div>
+              <i class="el-icon-arrow-right jt"  style="font-size: small"></i>
             </li>
           </ul>
 
       <!--服务中心-->
         <ul class="server" style="margin-top: .5rem">
           <li class="order" v-for="order in orders" @click="order.beat1">
-            <i :class="order.pic" style="margin-left: .5rem; color: rgb(74, 165, 240);"></i>
-            <span style="margin-left:.5rem; font-size:.65rem;">{{order.count}}</span>
-            <i class="el-icon-arrow-right" style="margin-left: 9rem; font-size: small"></i>
+              <div class="ppp">
+                  <i :class="order.pic" style="color: rgb(74, 165, 240);"></i>
+                  <span style="margin-left:.2rem; font-size:.65rem;">{{order.count}}</span>
+              </div>
+            <i class="el-icon-arrow-right" style=" font-size: small"></i>
           </li>
         </ul>
 
@@ -211,7 +215,7 @@
 <style scoped>
   /*登录*/
   .login {
-    width:375px;
+    width:16.304rem;
     background-color: #3190e8;
     height:3.913rem;
     magin-top:1.95rem;
@@ -254,6 +258,7 @@
     font-weight: 400;
   }
 
+  /*订单和服务*/
   .order{
     background: #fff;
     border-bottom: 1px solid #f1f1f1;
@@ -262,6 +267,11 @@
     color: #333;
     display: flex;
     justify-content:flex-start;
+  }
+
+  .ppp {
+    width: 95%;
+      margin-left: .5rem;
   }
 
   /*脚部*/
