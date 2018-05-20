@@ -77,7 +77,7 @@
                   text:"el-icon-arrow-right",
                   pic:pic,
                   beat:()=>{
-                      console.log("安吉时间");
+                      return 0;
                   }
               },
               {
