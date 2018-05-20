@@ -28,8 +28,14 @@ import add from '../components/jyh/user/add'
 import add1 from '../components/jyh/user/add1'
 import name from '../components/jyh/user/name'
 import appraise from '../components/jyh/appraise/appraise'
+<<<<<<< HEAD
 import carr from '../components/jyh/carr/carr'
 
+=======
+
+
+import carr from '../components/jyh/carr/carr'
+>>>>>>> 4823868afd13e6ed73000bbb24282b2ea32e7947
 import face from '../components/fcr/face/face'
 import wd from '../components/fcr/face/city'
 import home from '../components/fcr/home/home'
@@ -138,7 +144,10 @@ export default new Router({
       name:'pay',
       component:pay
     },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4823868afd13e6ed73000bbb24282b2ea32e7947
     {
       path:'/prize',
       name:'prize',
@@ -149,7 +158,10 @@ export default new Router({
           name: 'prize',
           component: prize
       },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4823868afd13e6ed73000bbb24282b2ea32e7947
     {
       path:'/red',
       name:'red',
