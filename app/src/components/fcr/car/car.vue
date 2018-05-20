@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span class="el-icon-arrow-left goback" ></span>
+        <span class="el-icon-arrow-left goback" @click="goback"></span>
         <div class="top">
             <img :src="hf" alt="" class="header_cover">
             <div class="des_header">
@@ -27,7 +27,7 @@
                 </div>
         </div>
 
-        <div class="bot">
+        <div class="bot" v-if="f">
 
             <ul class="spul">
                 <div class="win">
@@ -52,7 +52,7 @@
                         </div>
                         <div v-for="a in al.foods" class="onediv">
                             <img :src="href+a.image_path" class="imgs">
-                            <div>
+                            <div style="width: 100%">
                             <h3>{{a.name}}</h3>
                                 <p class="onep">{{a.description}}</p>
                                 <p class="twop">
@@ -68,9 +68,9 @@
                                         <span>{{a.specfoods[0].price}}</span>
                                         <span>起</span>
                                     </div>
-                                    <div class="food_num">
-                                        <span >-</span>
-                                        <span  style="color: red;font-size: 1rem">{{cs}}</span>
+                                    <div class="food_num" style="display: none">
+                                        <span class="jian" @click="ggjian" >-</span>
+                                        <span  style="color: red;font-size: .4rem;display: block;float: right;margin-right: 0.4rem">{{cs}}</span>
                                     </div>
 
                                     <div class="choice">
@@ -88,8 +88,84 @@
 
                 </ul>
             </ul>
+        </div>
+
+        <div class="container" v-if="pj1">
+            <!--上-->
+            <div class="header">
+                <div class="header_l">
+                    <p class="p1">{{return3}}</p>
+                    <p class="p2">综合评价</p>
+                    <p class="p3">高于周边商家76.9%</p>
+                </div>
+                <div class="header_r">
+                    <p>
+                        <span class="span1">服务态度</span>
+                        <el-rate
+                            v-model="return1"
+                            disabled
+                            show-score
+                            text-color="#ff9900"
+                            score-template="{value}">
+                        </el-rate>
+                    </p>
+                    <p>
+                        <span class="span1">菜品评价</span>
+                        <el-rate
+                            v-model="return2"
+                            disabled
+                            show-score
+                            text-color="#ff9900"
+                            score-template="{value}">
+                        </el-rate>
+                    </p>
+                    <p>
+                        <span class="span1">送达时间</span>
+                        <span class="s1">分钟</span>
+                    </p>
+                </div>
+            </div>
+
+            <!--中间-->
+            <ul class="middle">
+                <li class="food" v-for="(li,index) in food" :style="{color:li.beat},{background:li.beat1}" @click="blue6(index)" :class="{blue:changeclass==index}">{{li.name}}({{li.count}})</li>
+            </ul>
+
+            <!--下-->
+            <ul class="bottom">
+                <li class="bottom1" v-for="bottom1 in text1">
+                    <img :src="bottom1.avatar"  class="one1">
+                    <div class="one2">
+                        <div class="h1">
+                            <div class="rh1">
+                                <p class="pp1">{{bottom1.username}}</p>
+                                <p class="pp2">
+                                    <el-rate v-model="bottom1.rating_star"></el-rate>
+                                    <span class="pp3">{{bottom1.time_spent_desc}}</span>
+                                </p>
+                            </div>
+                        </div>
+                        <ul class="h2">
+                            <li  v-for="bottom2 in bottom1.item_ratings" >
+                                <div>
+                                    <img :src="bottom2.image_hash" alt="" class="im" v-if="bottom2.image_hash!=0">
+                                </div>
+                                <span class="li1">{{bottom2.food_name}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="one3">
+                        2017-02-10
+                    </div>
+                </li>
+            </ul>
 
         </div>
+
+
+
+
+
         <div class="gg" v-show="orgg">
             <div class="gg1">
             <div class="gg1_header">
@@ -98,7 +174,7 @@
             </div>
             <h5>规格</h5>
                 <ul>
-                    <li v-for="(gg,index) in ggs" @click="xz(index)" :class="{blue:crent1==index}">{{gg.specs_name}}</li>
+                    <li v-for="(gg,index) in ggs" @click="xz(index)" :class="{blue1:crent1==index}">{{gg.specs_name}}</li>
                 </ul>
                 <div class="gg1_foot">
                     <span>{{price}}</span>
@@ -116,8 +192,8 @@
                 <div>{{count}}</div>
                 <div>配送费5</div>
             </div>
-            <div class="gobuy">
-                <div>去结算</div>
+            <div class="gobuy" @click="sett">
+                <div >去结算</div>
             </div>
             <div class="zhanshicar" v-if="showcar">
                 <div class="zhanshicar_header">
@@ -143,12 +219,21 @@
             </div>
         </div>
             <!--<div class="black"></div>-->
+
+
+
+
+
+
+
+
     </div>
 </template>
 
 <script>
     import Vue from 'vue';
     import Vuex from 'vuex'
+    import pic from "@/assets/img/1.jpg"
     Vue.use(Vuex);
     var crtl = this;
     const store = new Vuex.Store({
@@ -198,7 +283,7 @@
                 diss:[],
                 top:0,
                 or:true,
-                a:false,
+                w:true,
                 c:null,
                 orgg:false,
                 ggs:null,
@@ -212,10 +297,32 @@
                 incar:null,
                 showcar:false,
                 z:null,
-                b:null
+                b:null,
+                f:true,
+                pj1:false,
+
+
+                return1:null,
+                return2:null,
+                return3:"",
+                //从下表为0的开始点击
+                changeclass:0,
+                food:"",
+                //下
+                pic:pic,
+                text1:null,
+                value1: null,
             }
         },
         methods:{
+            goback(){
+              this.$router.push({
+                  name: "home",
+              } )
+            },
+            blue6(index){
+                this.changeclass = index
+            },
             jianjian(index,price){
                 var p = {
                     index:index,
@@ -231,6 +338,12 @@
                 if(store.state.incar.length==0){
                     this.showcar=false
                 }
+            },
+            sett(){
+              this.$router.push({path:'/set'})
+            },
+            ggjian(){
+                //规格见见
             },
             jiajia(index,price){
                 var p = {
@@ -280,13 +393,20 @@
             change(){
               this.blue = false;
               this.changeblue=true;
+              this.pj1 = false;
+              this.f = true;
           },
             change1(){
                 this.changeblue=false;
                 this.blue=true;
+                this.f = false;
+                this.pj1 = true;
+
+
             },
             dj(index,$event) {
-                this.a =false;
+                this.w =false;
+               var  r = false;
                 clearInterval(window.timer13);
                 this.or = false;
                 var uls = document.getElementsByClassName('divs')[0];
@@ -312,35 +432,41 @@
                             t++;
                             a.scrollTop = b+(allpy/allt)*t;
                             if(t>=allt){
+                               r=true;
                                 this.aaa(index);
                              clearInterval(timer);
+
                             }
 
                         },20)
                     };
-                         sd.call(this,two,index,dis,ul);
-                                    console.log(this.a)
-                                   if(this.a==true) {
-                                      window.timer13 = setInterval(() => {
-                                          console.log("13");
-                                          for (var i = 0; i < two.length; i++) {
-                                               var x = two[i].offsetHeight;
-                                               if (this.diss.length == 0) {
-                                                   var h = x;
-                                               } else {
-                                                   var h = x + this.diss[i - 1];
-                                               }
-                                               this.diss.push(h);
 
-                                               if (ul.scrollTop >= this.diss[i]) {
-                                                   this.aaa(i + 1);
-                                                   this.a = false;
-                                                   if (i >= 8) {
-                                                       divs.style.top = -536 + "px";
-                                                   }
-                                               }
-                                           }
-                                      }, 20);}
+             sd.call(this,two,index,dis,ul);
+                    console.log(r)
+                    if(r==true) {
+                        window.timer13 = setInterval(() => {
+                            console.log("13");
+                            for (var i = 0; i < two.length; i++) {
+                                var x = two[i].offsetHeight;
+                                if (this.diss.length == 0) {
+                                    var h = x;
+                                } else {
+                                    var h = x + this.diss[i - 1];
+                                }
+                                this.diss.push(h);
+
+                                if (ul.scrollTop >= this.diss[i]) {
+                                    this.aaa(i + 1);
+                                    this.a = false;
+                                    if (i >= 8) {
+                                        divs.style.top = -536 + "px";
+                                    }
+                                }
+                            }
+                        }, 20);
+                    }
+
+
                         },
             jh(){
             console.log("我是加号")
@@ -350,7 +476,7 @@
             },
             gg(a,$event){
             this.orgg = !this.orgg;
-            console.log($event.target)
+            $event.target.parentNode.parentNode.childNodes[2].style.display="block";
             this.c = a.name;
             this.ggs = a.specfoods;
             this.price = this.ggs[this.crent1].price
@@ -443,10 +569,116 @@
                    }
                }
             })
-    }}
-</script>
 
+
+
+          //获取评价分数
+          Vue.axios.get("http://cangdu.org:8001/ugc/v2/restaurants/1/ratings/scores").then((response)=>{
+              // console.log(response.data)
+              // 获取服务评分
+              this.return1 =Number(response.data.service_score.toFixed(1))
+              // console.log(typeof this.return1)
+
+              //获取菜品评价
+              //toFixed()：保留小数
+              this.return2 = Number(response.data.food_score.toFixed(1))
+
+              // 获取综合评分
+              this.return3 = Number(response.data.overall_score.toFixed(1))
+              //   console.log(typeof this.return3)
+          });
+
+          //获取评价分类
+          Vue.axios.get("http://cangdu.org:8001/ugc/v2/restaurants/1/ratings/tags").then((response)=>{
+              //response.data:是请求返回的数据
+              // console.log(response.data)
+              this.food = response.data
+
+          });
+
+          //获取评价信息
+          Vue.axios.get("http://cangdu.org:8001/ugc/v2/restaurants/1/ratings?offset=0&limit=10").then((response)=>{
+              console.log(response.data)
+              this.text1 = response.data
+              // console.log(this.text1 )
+              function qiegeFn(Arr) {
+                  let newStr = "";
+                  if(Arr==""){
+                      return pic
+                  }
+                  var tmp = Arr.substring(0, 1) + "/"
+                  newStr += tmp;
+                  var tmp = Arr.substring(1, 3) + "/"
+                  newStr += tmp;
+                  var tmp = Arr.substring(3, Arr.length) + "."
+                  newStr += tmp;
+                  var href = "https://fuss10.elemecdn.com/"
+                  href += newStr
+                  if (Arr.length == 35) {
+                      var hz = "png"
+                  } else {
+                      var hz = "jpeg"
+                  }
+                  return href += hz
+              };
+
+              for(var i = 0;i<this.text1.length;i++){
+                  this.text1[i].avatar = qiegeFn(this.text1[i].avatar)
+              }
+
+              function qiege1Fn(Arr) {
+                  let newStr = "";
+                  if(Arr=="") {
+                      return 0
+                  }
+                  var tmp = Arr.substring(0, 1) + "/"
+                  newStr += tmp;
+                  var tmp = Arr.substring(1, 3) + "/"
+                  newStr += tmp;
+                  var tmp = Arr.substring(3, Arr.length) + "."
+                  newStr += tmp;
+                  var href = "https://fuss1 0.elemecdn.com/"
+                  href += newStr
+                  if (Arr.length == 35) {
+                      var hz = "png"
+                  } else {
+                      var hz = "jpeg"
+                  }
+                  return href += hz
+              };
+
+              for(var i= 0;i<this.text1.length;i++) {
+                  for(var j = 0;j<this.text1[i].item_ratings.length;j++){
+                      this.text1[i].item_ratings[j].image_hash = qiege1Fn(this.text1[i].item_ratings[j].image_hash)
+                  }
+              }
+
+
+          });
+
+
+
+
+
+        }}
+</script>
+<style>
+    .el-rate__item {
+        margin: -5px;
+    }
+</style>
 <style scoped>
+    .jian{
+        font-size: .5rem;
+        background: white;
+        border-radius: 50%;
+        border: 1px solid black;
+        display:block;
+        width: 22%;
+        margin-left: .565rem;
+        text-align: center;
+        float: left;
+    }
     .incar{
         display: flex;
         justify-content: space-between;
@@ -502,7 +734,7 @@
     }
     .zhanshicar{
         position:fixed;
-        bottom: 4.8rem;
+        bottom: 3rem;
         left: 0;
         width: 100%;
         z-index: 11;
@@ -571,7 +803,7 @@
     .buycar{
         position: fixed;
         background-color: #3d3d3f;
-        bottom: 1.739rem;
+        bottom: 0;
         width: 100%;
         height: 2.99rem;
         left: 0;
@@ -599,7 +831,7 @@
         width: 1.39rem;
         height: 1.39rem;
     }
-    .blue{
+    .blue1{
         border: .025rem solid deepskyblue!important;
     }
     .gg1_header{
@@ -936,7 +1168,8 @@
         margin-left: -.35rem;
     }
     .food_num{
-        width: 15%;
+        width: 30%;
+        padding-top: .1rem;
     }
     .food_price{
         width: 40%;
@@ -961,11 +1194,11 @@
         font-size: 0;
         width: 100%;
         margin-top: .3rem;
+        display: flex;
         justify-content: space-between;
     }
     .choice{
-        display: flex;
-        align-items: center;
+      margin-right: .3rem;
     }
     .show_choice{
         display: block;
@@ -977,6 +1210,146 @@
         border: 1px solid #3190e8;
 
     }
+
+
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: .8rem .5rem;
+        margin-bottom: .5rem;
+    }
+    /*左*/
+    .header_l {
+        flex: 3;
+        text-align: center;
+    }
+
+    .p1 {
+        font-size: 1.2rem;
+        color: #f60;
+    }
+    .p2 {
+        font-size: .65rem;
+        color: #666;
+        margin-bottom: .1rem;
+    }
+    .p3 {
+        font-size: .4rem;
+        color: #999;
+    }
+    /*右*/
+    .header_r {
+        flex: 4;
+        margin-left: 30px;
+    }
+    .el-rate {
+        display: inline-block;
+        transform: scale(0.7);
+    }
+    .span1 {
+        color: #666;
+        font-size: .65rem;
+    }
+
+    .s1 {
+        font-size: .4rem;
+        color: #999;
+        margin-left: .5rem;
+    }
+
+
+    /*中间*/
+
+    .middle {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #fff;
+        padding: .5rem;
+    }
+    .food {
+        font-size: .6rem;
+        color: #6d7885;
+        padding: .3rem;
+        background-color: #ebf5ff;
+        border-radius: .2rem;
+        border: 1px;
+        margin: 0 .4rem .2rem 0;
+    }
+
+
+
+    .blue {
+        background: #3190e8!important;
+        color: #fff;
+    }
+
+    /*下*/
+    .bottom {
+        background: #ffffff;
+    }
+    .bottom1 {
+        border-top: 1px solid #f1f1f1;
+        padding: .6rem 0;
+        display: flex;
+        justify-content: space-around;
+    }
+    .one1 {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-left: -1rem;
+    }
+    .one2 {
+        margin-left: -2rem;
+
+    }
+
+    .one3 {
+        font-size: .4rem;
+        color: #999;
+    }
+    .pp1 {
+        color: #666;
+        margin-bottom: .2rem;
+        font-size: .5rem;
+    }
+    .pp2 {
+        transform: scale(0.8);
+        margin-left: -1rem;
+    }
+    .pp3{
+        font-size: .55rem;
+        color: #666;
+        margin-left: -.5rem;
+    }
+    .li1{
+        overflow: hidden;
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: .55rem;
+        color: #999;
+        width: 2.2rem;
+        padding: .2rem;
+        border: .025rem solid #ebebeb;
+        border-radius: .15rem;
+        margin-right: .3rem;
+        margin-bottom: 4px;
+    }
+
+    .im{
+        width: 3rem;
+        height: 3rem;
+        margin-right: .4rem;
+        display: inline-block;
+    }
+    .h2{
+        display: flex;
+        justify-content: space-between;
+    }
+
 </style>
 
 

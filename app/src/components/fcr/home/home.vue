@@ -130,7 +130,7 @@
               {
                   pic:"el-icon-tickets",
                   count:"订单",
-                  name:"#"
+                  name:"order"
               },
               {
                   pic:"el-icon-menu",

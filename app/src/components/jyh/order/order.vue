@@ -7,12 +7,14 @@
         <p class="right">订单列表</p>
       </div>
       <!--脚部-->
-      <div class="footer">
-        <div class="footer1"  v-for="footer1 in array"  @click="blue" style="text-align: center">
-          <li :class="footer1.pic"></li>
-          <p style="font-size: .5rem">{{footer1.count}}</p>
+        <div class="footer">
+            <div class="footer1"  v-for="footer1 in array"  @click="blue" style="text-align: center">
+                <router-link :to="{name:footer1.name}" class="black" style="color: #000">
+                    <li :class="footer1.pic"></li>
+                    <p style="font-size: .5rem">{{footer1.count}}</p>
+                </router-link>
+            </div>
         </div>
-      </div>
     </div>
   </div>
 </template>
@@ -22,12 +24,28 @@
         name: "order",
       data:function () {
         return {
-          array:[
-            {pic:"el-icon-refresh", count:"外卖"},
-            {pic:"el-icon-search", count:"搜索"},
-            {pic:"el-icon-tickets", count:"订单"},
-            {pic:"el-icon-menu", count:"我的"}
-          ]
+            array:[
+                {
+                    pic:"el-icon-refresh",
+                    count:"外卖",
+                    name:"home"
+                },
+                {
+                    pic:"el-icon-search",
+                    count:"搜索",
+                    name:"search"
+                },
+                {
+                    pic:"el-icon-tickets",
+                    count:"订单",
+                    name:"order"
+                },
+                {
+                    pic:"el-icon-menu",
+                    count:"我的",
+                    name:"infor"
+                }
+            ],
         }
       },
       methods:{
