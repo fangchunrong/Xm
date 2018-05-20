@@ -28,14 +28,19 @@ import add from '../components/jyh/user/add'
 import add1 from '../components/jyh/user/add1'
 import name from '../components/jyh/user/name'
 import appraise from '../components/jyh/appraise/appraise'
+<<<<<<< HEAD
 
 import carr from '../components/jyh/carr/carr'
 
+=======
+import carr from '../components/jyh/carr/carr'
+>>>>>>> af70aa893117c487a7e26a01b06e0b1533f874ec
 import face from '../components/fcr/face/face'
 import wd from '../components/fcr/face/city'
 import home from '../components/fcr/home/home'
 import all from '../components/fcr/all/all'
 import car from "../components/fcr/car/car"
+import set from "../components/fcr/settle/settlement"
 Vue.use(Router)
 
 export default new Router({
@@ -138,11 +143,19 @@ export default new Router({
       name:'pay',
       component:pay
     },
+<<<<<<< HEAD
     {
       path:'/prize',
       name:'prize',
       component:prize
     },
+=======
+      {
+          path: '/prize',
+          name: 'prize',
+          component: prize
+      },
+>>>>>>> af70aa893117c487a7e26a01b06e0b1533f874ec
     {
       path:'/red',
       name:'red',
@@ -212,7 +225,15 @@ export default new Router({
           path:'/carr',
           name:'carr',
           component:carr
+      },
+      {
+          path:'/set',
+          name:'set',
+          component:set
       }
   ]
+<<<<<<< HEAD
 
+=======
+>>>>>>> af70aa893117c487a7e26a01b06e0b1533f874ec
 })

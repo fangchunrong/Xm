@@ -90,26 +90,6 @@
                 pic:pic,
                 text1:null,
                 value1: null,
-                // bottoms:[
-                //     {
-                //         pic:pic,
-                //         // text1:"4*********b",
-                //         give:"按时送达",
-                //         pic1:pic1,
-                //         pic2:pic2,
-                //         s1:"超级至尊披萨_铁盘",
-                //         s2:"韩式浓情风味鸡(标准份)"
-                //     },
-                //     {
-                //         pic:pic,
-                //         // username:"t****n",
-                //         give:"按时送达",
-                //         pic1:pic1,
-                //         pic2:"",
-                //         s1:"香草凤尾虾-5只装",
-                //         s2:"鸡茸蘑菇汤"
-                //     }
-                // ]
             }
         },
         methods:{
