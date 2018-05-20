@@ -6,7 +6,7 @@
       <svg data-v-cec0c0c0="" class="user_avatar">
         <use data-v-cec0c0c0="" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg></a>
           <span id="dz">{{cityname}}</span>
-         <span class="el-icon-location-outline"></span>
+         <span class="el-icon-location-outline" @click="tz"></span>
   </div>
   <swiper ref="mySwiper" class="lb">
     <!-- slides -->
@@ -169,6 +169,9 @@
     },
 
     methods:{
+        tz(){
+          this.$router.push({path:"/"})
+        },
         car(hf){
 
             console.log("6")

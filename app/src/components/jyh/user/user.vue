@@ -75,7 +75,10 @@
               {
                   count:"头像",
                   text:"el-icon-arrow-right",
-                  pic:pic
+                  pic:pic,
+                  beat:()=>{
+                      console.log("安吉时间");
+                  }
               },
               {
                   count:"用户名",
